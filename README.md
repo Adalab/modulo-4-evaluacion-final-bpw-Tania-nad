@@ -5,7 +5,7 @@ API sencilla de películas que gestiona las funcionalidades para obtener todas l
 ## Instalación y puesta en marcha
 - Clonar repositorio
 - npm install
-- Comprobar las instalaciones correspondientes en packcage.json
+- Comprobar las instalaciones correspondientes en package.json
 
 ## Uso
 La API está disponible en http://localhost:4001
