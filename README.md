@@ -31,7 +31,7 @@ La API está disponible en http://localhost:4001
   "genre": "Acción",
   "country": "País donde se rueda la película"
 }
-### Código de estado: 201
+##### Código de estado: 201
 
 ### GET/MOVIES
 ##### Ver todas las películas:
@@ -45,7 +45,7 @@ La API está disponible en http://localhost:4001
   "genre": "Acción",
   "country": "País donde se rueda la película"
 }
-### Código de estado: 200 OK
+##### Código de estado: 200 OK
 
 ### PUT/MOVIES
 ##### Actualizar la información de una película:
@@ -68,7 +68,7 @@ Id de la película
   "genre": "Drama",
   "country": "País donde se rueda la película"
 }
-### Código de estado: 200 OK
+##### Código de estado: 200 OK
 
 ### DELETE/MOVIES
 ##### Borrar una película:
@@ -80,6 +80,6 @@ Id de la película
 {
     "success": true
 }
-### Código de estado: 200 OK
+##### Código de estado: 200 OK
 
 
