@@ -11,19 +11,19 @@ API sencilla de películas que gestiona las funcionalidades de obtener todas las
 ## Uso
 La API está disponible en http://localhost:4001
 
-## Documentación de endpoints
-# POST/MOVIES
-Crear una película:
-URL: /api/movie
-MÉTODO: POST
-CUERPO DE LA SOLICITUD(JSON):
+### Documentación de endpoints
+## POST/MOVIES
+# Crear una película:
+# URL: /api/movie
+# MÉTODO: POST
+# CUERPO DE LA SOLICITUD(JSON):
 {
   "name": "Nombre de la película",
   "actors": "Nombre del actor o actriz",
   "genre": "Acción",
   "country": "País donde se rueda la película"
 }
-RESPUESTA:
+# RESPUESTA:
 {
   "id": "nuevo id generado",
   "name": "Nombre de la película",
@@ -31,4 +31,4 @@ RESPUESTA:
   "genre": "Acción",
   "country": "País donde se rueda la película"
 }
-Código de estado: 201
+# Código de estado: 201
