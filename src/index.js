@@ -76,3 +76,39 @@ api.get("/api/allmovies", async (req, res) => {
         results: resultMovies
     })
 })
+
+/*Actualizar una película:
+    - recoger los datos de frontend (id + url)
+    - conectar con la base de datos
+    - actualizar el registro que tenga ese id -->UPDATE
+    - finalizar conexión
+    - responder a frontend
+*/
+
+api.put("/api/movies/:id", async (req, res) => {
+    const id = req.params.id;
+    const { name, actors, genre, country } = req.body;
+    const connection = await getDBConnection();
+    const newQuery = "UPDATE movies SET name = ?, actors = ?, genre = ?, country = ? WHERE id = ?";
+    const [idResult] = await connection.query(newQuery, [
+        name, actors, genre, country, id
+    ]);
+    connection.end();
+    res.status(200).json({ success: true });
+})
+
+/*Eliminar una película
+    - recoger datos de frontend (id)
+    - conectarme a la base de datos
+    - eliminar el registro con ese id --> DELETE
+    - cerrar la conexión
+    - enviar respuesta a frontend
+*/
+api.delete("/api/movies/:id", async (req, res) => {
+    const connection = await getDBConnection();
+    const queryDelete = "DELETE FROM movies WHERE id = ?";
+    const [deleteResult] = await connection.query(queryDelete, [req.params.id]);
+    console.log("resultado:", deleteResult);
+    console.log("params:", req.params);
+    res.status(200).json({ success: true });
+})
