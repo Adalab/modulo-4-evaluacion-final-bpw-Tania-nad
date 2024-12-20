@@ -32,3 +32,54 @@ La API está disponible en http://localhost:4001
   "country": "País donde se rueda la película"
 }
 ### Código de estado: 201
+
+### GET/MOVIES
+##### Ver todas las películas:
+##### URL: /api/allmovies
+##### MÉTODO: GET
+##### RESPUESTA:
+{
+  "id": "id",
+  "name": "Nombre de la película",
+  "actors": "Nombre del actor o actriz",
+  "genre": "Acción",
+  "country": "País donde se rueda la película"
+}
+### Código de estado: 200 OK
+
+### PUT/MOVIES
+##### Actualizar la información de una película:
+##### URL: /api/movies/:id
+##### MÉTODO: PUT
+##### PARÁMETROS DE RUTA:
+Id de la película
+##### CUERPO DE LA SOLICITUD(JSON):
+{
+  "name": "Nombre de la película",
+  "actors": "Nombre del actor o actriz",
+  "genre": "Acción",
+  "country": "País donde se rueda la película"
+}
+#### RESPUESTA:
+{
+  "id": 7,
+  "name": "Nuevo nombre",
+  "actors": "actor y/o actriz",
+  "genre": "Drama",
+  "country": "País donde se rueda la película"
+}
+### Código de estado: 200 OK
+
+### DELETE/MOVIES
+##### Borrar una película:
+##### URL: /api/movies/:id
+##### MÉTODO: DELETE
+##### PARÁMETROS DE RUTA:
+Id de la película
+#### RESPUESTA:
+{
+    "success": true
+}
+### Código de estado: 200 OK
+
+
