@@ -6,7 +6,6 @@ API sencilla de películas que gestiona las funcionalidades para obtener todas l
 - Clonar repositorio
 - npm install
 - Comprobar las instalaciones correspondientes en packcage.json
-- Configura las variables de entorno con la ayuda del archivo .env_example
 
 ## Uso
 La API está disponible en http://localhost:4001
