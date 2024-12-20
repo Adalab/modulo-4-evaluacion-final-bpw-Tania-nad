@@ -15,3 +15,48 @@ api.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 
 })
+
+//Función para conectarme a la base de datos
+async function getDBConnection() {
+    const connection = await mysql.createConnection({
+        host: "otwjh.h.filess.io",
+        user: "proyectosMolones2_fruitsent",
+        password: "53bb7532480537c28ab0c00b74cb5c27f5551aea",
+        database: "proyectosMolones2_fruitsent",
+        port: 3307
+    })
+    connection.connect();
+    return connection;
+}
+
+//ENDPOINTS
+
+/*Insertar una pelicula en la tabla movies
+    - recoger los datos de la película de frontend
+    - conectar a la base de datos
+    - añadir la nueva película a la base de datos
+    - finalizar la conexión
+    - responder a frontend
+*/
+
+api.post("/api/movie", async (req, res) => {
+    console.log(req.body);
+    const { name, actors, genre, country } = req.body;
+    if (!name || !actors || !genre || !country) {
+        res.status(400).json({
+            success: false,
+            message: "falta un campo por rellenar"
+        })
+    } else {
+        const connection = await getDBConnection();
+        const query = "INSERT INTO movies(name, actors, genre, country) VALUES (?, ?, ?, ?)";
+        const [result] = await connection.query(query, [name, actors, genre, country]);
+        console.log(result);
+        connection.end();
+        res.status(201).json({
+            success: true,
+            id: result.insertId
+        })
+
+    }
+})
