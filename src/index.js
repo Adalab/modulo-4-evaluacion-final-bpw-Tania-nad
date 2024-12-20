@@ -60,3 +60,19 @@ api.post("/api/movie", async (req, res) => {
 
     }
 })
+/* Obtener todas las películas 
+    - conectar con la base de datos
+    - seleccionar todas las películas
+    - finalizar la conexión
+    - responder a frontend
+*/
+api.get("/api/allmovies", async (req, res) => {
+    const connection = await getDBConnection();
+    const movieQuery = "SELECT * FROM movies";
+    const [resultMovies] = await connection.query(movieQuery);
+    //console.log(resultMovies);
+    res.status(200).json({
+        info: { count: resultMovies.lenght },
+        results: resultMovies
+    })
+})
